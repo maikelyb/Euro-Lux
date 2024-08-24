@@ -1,0 +1,318 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body %}
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-0 pe-5">
+    <a href="{% url 'home' %}" class="navbar-brand navbar-brand-ar ps-5 me-0">
+        <h1 class="text-white m-0">{% if LANGUAGE_CODE == 'en' %}Euro Lux{% else %}يورو لوكس{% endif %}</h1>
+    </a>
+    {% comment %} <form class="ms-auto me-2" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
+        {% if LANGUAGE_CODE == 'ar' %}
+            <button type='submit' name='language' value='en' class="bi bi-globe btn btn-primary px-3 d-sm-block d-lg-none rounded-circle">
+                <span class="label"></span>English
+            </button>
+        {% else %}
+            <button type='submit' name='language' value='ar' class="bi bi-globe2 btn btn-primary px-3 d-sm-block d-lg-none rounded-circle">
+                <span class="label"></span>عربي
+            </button>
+        {% endif %}
+    </form>{% endcomment %}
+    <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            {% if LANGUAGE_CODE == 'en' %}
+            <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+            <a href="{% url 'about'%}" class="nav-item nav-link">About</a>
+            <a href="{% url 'contact' %}" class="nav-item nav-link active">Contact</a>
+            {% else %}
+            <a href="{% url 'home' %}" class="nav-item nav-link">الرئيسية</a>
+            <a href="{% url 'about'%}" class="nav-item nav-link">عنا</a>
+            <a href="{% url 'contact' %}" class="nav-item nav-link active">تواصل معنا</a>
+            {% endif %}
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
+                {% if LANGUAGE_CODE == 'ar' %}
+                    <button type='submit' name='language' value='en' class="bi bi-globe btn btn-primary px-3 d-sm-block d-lg-block rounded-circle nav-item nav-link text-white">
+                        <span class="label"></span>English
+                    </button>
+                {% else %}
+                    <button type='submit' name='language' value='ar' class="bi bi-globe2 btn btn-primary px-3 d-sm-block d-lg-block rounded-circle nav-item nav-link text-white">
+                        <span class="label"></span>عربي
+                    </button>
+                {% endif %}
+            </form>
+
+            {% comment %} <a href="service.html" class="nav-item nav-link">Services</a> {% endcomment %}
+            {% comment %} <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu bg-light m-0">
+                    <a href="project.html" class="dropdown-item">Projects</a>
+                    <a href="feature.html" class="dropdown-item">Features</a>
+                    <a href="team.html" class="dropdown-item">Our Team</a>
+                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                    <a href="404.html" class="dropdown-item">404 Page</a>
+                </div>
+            </div> {% endcomment %}
+        </div>
+        {% comment %} <a href="/admin" class="btn btn-primary px-3 d-none d-lg-block">Admin</a> {% endcomment %}
+    </div>
+
+</nav>
+<!-- Navbar End -->
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s"{%if LANGUAGE_CODE == 'ar'%}dir='rtl'{%endif%}>
+    <div class="container py-5">
+        <h1 class="display-3 text-white animated slideInRight">{% if LANGUAGE_CODE == 'en' %}Contact Us{% else %}تواصل معنا{% endif %}</h1>
+        <nav aria-label="breadcrumb" dir = 'ltr'>
+            {% if LANGUAGE_CODE == 'en' %}
+            <ol class="breadcrumb animated slideInLeft mb-0">
+                <li class="breadcrumb-item "><a href="{% url "home" %}">Home</a></li>
+                <li class="breadcrumb-item active text-primary" aria-current="page">Contact Us</li>
+            </ol>
+            {% else %}
+            <ol class="breadcrumb animated slideInLeft mb-0 ">
+                <li class="breadcrumb-item active text-primary" aria-current="page">تواصل معنا</li>
+                <li class="breadcrumb-item "><a href="{% url "home" %}">الرئيسية</a></li>
+            </ol>
+            {% endif %}
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Contact Start -->
+<div class="container-xxl py-5"{%if LANGUAGE_CODE == 'ar'%}dir='rtl'{%endif%}>
+    <div class="container">
+        <div class="row g-5 justify-content-center mb-5">
+            {% if LANGUAGE_CODE == 'en' %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="bg-light text-center h-100 p-5">
+                    <div class="btn-square bg-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-phone-alt fa-2x text-primary"></i>
+                    </div>
+                    <h4 class="mb-3">Phone Number</h4>
+                    <p class="mb-2">+2 011 2115 6693</p>
+                    <p class="mb-4">+2 010 2739 5109</p>
+                    <a class="btn btn-primary px-4 col-6" href="tel:+201121156693"><i class ="fa fa-phone-alt fa-lg"></i><i class="fa fa-arrow-right ms-2"></i></a>
+                    <a class="btn btn-primary mt-2 px-4 col-6" href="https://wa.me/201121156693" target="_blank"><i class="fab fa-whatsapp fa-lg"></i><i class="fa fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="bg-light text-center h-100 p-5">
+                    <div class="btn-square bg-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-envelope-open fa-2x text-primary"></i>
+                    </div>
+                    <h4 class="mb-3">Email Address</h4>
+                    <p class="mb-2">kerollos@euro-lux.com</p>
+                    <p class="mb-4">support@euro-lux.com</p>
+                    <a class="btn btn-primary px-4" href="mailto:kerollos@euro-lux.com">Email Now <i class="fa fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="bg-light text-center h-100 p-5">
+                    <div class="btn-square bg-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-map-marker-alt fa-2x text-primary"></i>
+                    </div>
+                    <h4 class="mb-3">Office Address</h4>
+                    <p class="mb-2">Industrial Area</p>
+                    <p class="mb-4">10th of Ramadan City</p>
+                    <a class="btn btn-primary px-4" href="https://maps.app.goo.gl/gHkqeEfQkTG8Ader8" target="blank">Direction <i class="fa fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="bg-light text-center h-100 p-5">
+                    <div class="btn-square bg-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-phone-alt fa-2x text-primary"></i>
+                    </div>
+                    <h4 class="mb-3">رقم التليفون</h4>
+                    <p class="mb-2" dir="ltr">+2 011 2115 6693</p>
+                    <p class="mb-4" dir="ltr">+2 010 2739 5109</p>
+                    <a class="btn btn-primary px-4 col-6" href="tel:+201121156693"><i class ="fa fa-phone-alt fa-lg"></i><i class="fa fa-arrow-left me-2"></i></a>
+                    <a class="btn btn-primary mt-2 px-4 col-6" href="https://wa.me/201121156693" target="_blank"><i class="fab fa-whatsapp fa-lg"></i><i class="fa fa-arrow-left me-2"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="bg-light text-center h-100 p-5">
+                    <div class="btn-square bg-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-envelope-open fa-2x text-primary"></i>
+                    </div>
+                    <h4 class="mb-3">عنوان البريد الإلكتروني</h4>
+                    <p class="mb-2">kerollos@euro-lux.com</p>
+                    <p class="mb-4">support@euro-lux.com</p>
+                    <a class="btn btn-primary px-4" href="mailto:kerollos@euro-lux.com"> ارسل الان<i class="fa fa-arrow-left me-2"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="bg-light text-center h-100 p-5">
+                    <div class="btn-square bg-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-map-marker-alt fa-2x text-primary"></i>
+                    </div>
+                    <h4 class="mb-3">عنوان المكتب</h4>
+                    <p class="mb-2">المنطقة الصناعية</p>
+                    <p class="mb-4">مدينة العاشر من رمضان</p>
+                    <a class="btn btn-primary px-4" href="https://maps.app.goo.gl/h57TXPfyyPniGng37" target="blank">الموقع <i class="fa fa-arrow-left me-2"></i></a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="row mb-5">
+            <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+                <iframe class="w-100"
+                {% if LANGUAGE_CODE == 'en' %}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55136.30745649567!2d31.739286378829547!3d30.265033686014938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1457fd1dc398cd7d%3A0x37ad2eb859e76793!2sIndustrial%20Area%2010th%20Ramadan%2C%2010th%20of%20Ramadan%20City%201%2C%20Al-Sharqia%20Governorate!5e0!3m2!1sen!2seg!4v1724493565484!5m2!1sen!2seg"
+                {% else %}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110272.6280743907!2d31.936382283180883!3d30.265021967013514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1457fd1dc398cd7d%3A0x37ad2eb859e76793!2z2KfZhNmF2K_ZitmG2Kkg2KfZhNi12YbYp9i52YrYqSDYqNin2YTYudin2LTYsSDZhdmGINix2YXYttin2YbYjCDYo9mI2YQg2KfZhNi52KfYtNixINmF2YYg2LHZhdi22KfZhtiMINmF2K3Yp9mB2LjYqSDYp9mE2LTYsdmC2YrYqQ!5e0!3m2!1sar!2seg!4v1724493239044!5m2!1sar!2seg"
+                {% endif %}
+                frameborder="0" style="min-height: 450px; border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+            </div>
+        </div>
+        <div class="row g-5">
+            {% if LANGUAGE_CODE == 'en' %}
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <p class="fw-medium text-uppercase text-primary mb-2">Contact Us</p>
+                <h1 class="display-5 mb-4">If You Have Any Queries, Please Feel Free To Contact Us</h1>
+                <p class="mb-4">Feel free to contact us via Email or call us on our phone numbers</p>
+                <div class="row g-4">
+                    <div class="col-sm-6">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle">
+                                <i class="fa fa-phone-alt text-white"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h6>Call Us</h6>
+                                <span>+2 011 2115 6693</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle">
+                                <i class="fa fa-envelope text-white"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h6>Mail Us</h6>
+                                <span>kerollos@euro-lux.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <p class="fw-medium text-uppercase text-primary mb-2">تواصل معنا</p>
+                <h1 class="display-5 mb-4">إذا كان لديك اي استفسار لا تتردد في التواصل معنا</h1>
+                <p class="mb-4">تواصل معنا الان عبر البريد الالكتروني او علي ارقامنا</p>
+                <div class="row g-4">
+                    <div class="col-sm-6">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle">
+                                <i class="fa fa-phone-alt text-white"></i>
+                            </div>
+                            <div class="me-3">
+                                <h6>اتصل بنا</h6>
+                                <span dir='ltr'>+011 2115 6693</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle">
+                                <i class="fa fa-envelope text-white"></i>
+                            </div>
+                            <div class="me-3">
+                                <h6>ارسل لنا</h6>
+                                <span>kerollos@euro-lux.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                {% if LANGUAGE_CODE == 'en' %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                {% comment %} <input type="text" class="form-control" id="name" placeholder="Your Name"> {% endcomment %}
+                                {{form.name}}
+                                <label for="name">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                {% comment %} <input type="email" class="form-control" id="email" placeholder="Your Email"> {% endcomment %}
+                                {{form.email}}
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                {% comment %} <input type="text" class="form-control" id="subject" placeholder="Subject"> {% endcomment %}
+                                {{form.subject}}
+                                <label for="subject">Subject</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                {% comment %} <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea> {% endcomment %}
+                                {{form.message}}
+                                <label for="message">Message</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+                {% else %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                {% comment %} <input type="text" class="form-control" id="name" placeholder="Your Name"> {% endcomment %}
+                                {{form.name}}
+                                <label for="name">اسمك</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                {% comment %} <input type="email" class="form-control" id="email" placeholder="Your Email"> {% endcomment %}
+                                {{form.email}}
+                                <label for="email">بريدك الالكتروني</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                {% comment %} <input type="text" class="form-control" id="subject" placeholder="Subject"> {% endcomment %}
+                                {{form.subject}}
+                                <label for="subject">عنوان الرسالة</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                {% comment %} <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea> {% endcomment %}
+                                {{form.message}}
+                                <label  for="message">الرسالة</label>
+                            </div>
+                        </div>
+                        <div class="col-12" dir="ltr">
+                            <button class="btn btn-primary py-3 px-5" type="submit">ارسل الرسالة</button>
+                        </div>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+{% endblock body %}
