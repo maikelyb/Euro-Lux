@@ -12,7 +12,7 @@ def contact(request):
             email = form.cleaned_data['email']
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
-            send_mail(subject,message,email,['magdysameh945@gmail.com'])  # Change 'your@email.com' to your email address
+            send_mail(subject,email + "\n" +message,'MS_HvoHrT@trial-3vz9dle63kqgkj50.mlsender.net',['maikelybn@gmail.com'])  # Change 'your@email.com' to your email address
     else:
         form = ContactForm()
     
