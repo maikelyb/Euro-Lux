@@ -6,7 +6,7 @@
     <a href="{% url 'home' %}" class="navbar-brand navbar-brand-ar ps-5 me-0">
         <h1 class="text-white m-0">{% if LANGUAGE_CODE == 'en' %}Euro Lux{% else %}يورو لوكس{% endif %}</h1>
     </a>
-    {% comment %} <form class="ms-auto me-2" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+    {% comment %} <form class="ms-auto me-2" action="{% url 'set_language' %}" method="post">{% csrf_token %}                                      
         <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
         {% if LANGUAGE_CODE == 'ar' %}
             <button type='submit' name='language' value='en' class="bi bi-globe btn btn-primary px-3 d-sm-block d-lg-none rounded-circle">
@@ -16,7 +16,7 @@
             <button type='submit' name='language' value='ar' class="bi bi-globe2 btn btn-primary px-3 d-sm-block d-lg-none rounded-circle">
                 <span class="label"></span>عربي
             </button>
-        {% endif %}
+        {% endif %} 
     </form>{% endcomment %}
     <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -26,13 +26,15 @@
             {% if LANGUAGE_CODE == 'en' %}
             <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
             <a href="{% url 'about'%}" class="nav-item nav-link">About</a>
+            <a href="{% url 'pack'%}" class="nav-item nav-link">Packaging</a>
             <a href="{% url 'contact' %}" class="nav-item nav-link active">Contact</a>
             {% else %}
             <a href="{% url 'home' %}" class="nav-item nav-link">الرئيسية</a>
             <a href="{% url 'about'%}" class="nav-item nav-link">عنا</a>
+            <a href="{% url 'pack'%}" class="nav-item nav-link">التعبئة</a>
             <a href="{% url 'contact' %}" class="nav-item nav-link active">تواصل معنا</a>
             {% endif %}
-            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}                                      
                 <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
                 {% if LANGUAGE_CODE == 'ar' %}
                     <button type='submit' name='language' value='en' class="bi bi-globe btn btn-primary px-3 d-sm-block d-lg-block rounded-circle nav-item nav-link text-white">
@@ -44,7 +46,7 @@
                     </button>
                 {% endif %}
             </form>
-
+            
             {% comment %} <a href="service.html" class="nav-item nav-link">Services</a> {% endcomment %}
             {% comment %} <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -59,7 +61,7 @@
         </div>
         {% comment %} <a href="/admin" class="btn btn-primary px-3 d-none d-lg-block">Admin</a> {% endcomment %}
     </div>
-
+    
 </nav>
 <!-- Navbar End -->
 
@@ -119,7 +121,7 @@
                     <h4 class="mb-3">Office Address</h4>
                     <p class="mb-2">Industrial Area</p>
                     <p class="mb-4">10th of Ramadan City</p>
-                    <a class="btn btn-primary px-4" href="https://maps.app.goo.gl/gHkqeEfQkTG8Ader8" target="blank">Direction <i class="fa fa-arrow-right ms-2"></i></a>
+                    <a class="btn btn-primary px-4" href="https://maps.app.goo.gl/537p3176dbQ1G3Px8" target="blank">Direction <i class="fa fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
             {% else %}
@@ -154,7 +156,7 @@
                     <h4 class="mb-3">عنوان المكتب</h4>
                     <p class="mb-2">المنطقة الصناعية</p>
                     <p class="mb-4">مدينة العاشر من رمضان</p>
-                    <a class="btn btn-primary px-4" href="https://maps.app.goo.gl/h57TXPfyyPniGng37" target="blank">الموقع <i class="fa fa-arrow-left me-2"></i></a>
+                    <a class="btn btn-primary px-4" href="https://maps.app.goo.gl/BXkVrGMwHErMXVD58" target="blank">الموقع <i class="fa fa-arrow-left me-2"></i></a>
                 </div>
             </div>
             {% endif %}
@@ -163,9 +165,9 @@
             <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                 <iframe class="w-100"
                 {% if LANGUAGE_CODE == 'en' %}
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55136.30745649567!2d31.739286378829547!3d30.265033686014938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1457fd1dc398cd7d%3A0x37ad2eb859e76793!2sIndustrial%20Area%2010th%20Ramadan%2C%2010th%20of%20Ramadan%20City%201%2C%20Al-Sharqia%20Governorate!5e0!3m2!1sen!2seg!4v1724493565484!5m2!1sen!2seg"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d398.7144765341464!2d31.829816550227285!3d30.291691393595542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f809f0a1dc2f97%3A0xb74040d9dba423b0!2zRXVyb0x1eCDYp9mK2LHZiCDZhNmI2YPYsw!5e0!3m2!1sen!2seg!4v1725699608827!5m2!1sen!2seg"
                 {% else %}
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110272.6280743907!2d31.936382283180883!3d30.265021967013514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1457fd1dc398cd7d%3A0x37ad2eb859e76793!2z2KfZhNmF2K_ZitmG2Kkg2KfZhNi12YbYp9i52YrYqSDYqNin2YTYudin2LTYsSDZhdmGINix2YXYttin2YbYjCDYo9mI2YQg2KfZhNi52KfYtNixINmF2YYg2LHZhdi22KfZhtiMINmF2K3Yp9mB2LjYqSDYp9mE2LTYsdmC2YrYqQ!5e0!3m2!1sar!2seg!4v1724493239044!5m2!1sar!2seg"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.0795180020855!2d31.83209632471523!3d30.291797806809402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f809f0a1dc2f97%3A0xb74040d9dba423b0!2zRXVyb0x1eCDYp9mK2LHZiCDZhNmI2YPYsw!5e0!3m2!1sar!2seg!4v1725699896032!5m2!1sar!2seg"
                 {% endif %}
                 frameborder="0" style="min-height: 450px; border:0;" allowfullscreen="" aria-hidden="false"
                 tabindex="0"></iframe>

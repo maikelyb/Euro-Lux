@@ -26,10 +26,12 @@
             {% if LANGUAGE_CODE == 'en' %}
             <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
             <a href="{% url 'about'%}" class="nav-item nav-link active">About</a>
+            <a href="{% url 'pack'%}" class="nav-item nav-link">Packaging</a>
             <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
             {% else %}
             <a href="{% url 'home' %}" class="nav-item nav-link">الرئيسية</a>
             <a href="{% url 'about'%}" class="nav-item nav-link active">عنا</a>
+            <a href="{% url 'pack'%}" class="nav-item nav-link">التعبئة</a>
             <a href="{% url 'contact' %}" class="nav-item nav-link">تواصل معنا</a>
             {% endif %}
             <form action="{% url 'set_language' %}" method="post">{% csrf_token %}                                      

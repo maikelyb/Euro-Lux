@@ -26,7 +26,8 @@ urlpatterns += i18n_patterns(
     path("admin/", admin.site.urls),
     path("", include('home.urls')),
     path('about/', include('about.urls')),
-    path('contact/', include('contact.urls'))
+    path('contact/', include('contact.urls')),
+    path("packaging/", include('packaging.urls'))
 )
 
 if settings.DEBUG:

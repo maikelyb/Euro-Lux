@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "sass_processor",
     "home",
     "about",
+    "packaging",
     "contact",
 ]
 
