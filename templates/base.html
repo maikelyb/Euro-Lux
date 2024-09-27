@@ -77,7 +77,14 @@
 
    {% block body %}
    {% endblock body %}
-
+    <!-- Image Above Footer -->
+    <div class="container wow fadeInLeft">
+        <div class="row">
+            <div class="col text-center">
+                <img src="{% static "img/certificates.png" %}" alt="Your Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s" {% if LANGUAGE_CODE == 'ar' %}dir='rtl'{% endif %}>
